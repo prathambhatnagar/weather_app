@@ -93,12 +93,17 @@ class _WeatherPageState extends State<WeatherPage> {
                                           scale: 30,
                                         ),
                                       ),
-                                      Text(foreCast![index].main.toString(),
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w300,
-                                              letterSpacing: 1))
+                                      Flexible(
+                                        child: Text(
+                                            foreCast![index].main.toString(),
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w300,
+                                                letterSpacing: 1,
+                                                overflow:
+                                                    TextOverflow.ellipsis)),
+                                      )
                                     ],
                                   ),
                                   trailing: Text(
