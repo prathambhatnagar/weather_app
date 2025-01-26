@@ -7,7 +7,7 @@ import 'package:http/http.dart';
 import 'package:weather/model/weather_model.dart';
 
 class WeatherService {
-  String apiKey = '79f81ac4c9d440c57189aaf857b56310';
+  String apiKey = '';
 
   // Get City Method
   Future<String> getCity() async {
