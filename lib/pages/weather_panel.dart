@@ -154,11 +154,13 @@ class _WeatherPanelState extends State<WeatherPanel> {
                     ),
                     SizedBox(height: 5),
                     Text('90%', style: TextStyle(color: Colors.white)),
-                    Text('Rain',
-                        style: TextStyle(
-                            color: Colors.white60,
-                            fontWeight: FontWeight.w300,
-                            letterSpacing: 1)),
+                    Text(
+                      'Rain',
+                      style: TextStyle(
+                          color: Colors.white60,
+                          fontWeight: FontWeight.w300,
+                          letterSpacing: 1),
+                    ),
                   ],
                 )
               ],
