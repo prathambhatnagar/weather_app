@@ -36,7 +36,8 @@ class _WeatherPanelState extends State<WeatherPanel> {
                     children: [
                       Text(
                           unitflag
-                              ? widget.weather.temp.toString().substring(0, 2)
+                              ? widget.weather.temp.toString().substring(0,
+                                  widget.weather.temp.toString().indexOf('.'))
                               : widget.weather.tempf.toString().substring(0, 2),
                           style: TextStyle(
                               color: Colors.white,
@@ -153,14 +154,12 @@ class _WeatherPanelState extends State<WeatherPanel> {
                       scale: 35,
                     ),
                     SizedBox(height: 5),
-                    Text('90%', style: TextStyle(color: Colors.white)),
-                    Text(
-                      'Rain',
-                      style: TextStyle(
-                          color: Colors.white60,
-                          fontWeight: FontWeight.w300,
-                          letterSpacing: 1),
-                    ),
+                    Text('--%', style: TextStyle(color: Colors.white)),
+                    Text('Rain',
+                        style: TextStyle(
+                            color: Colors.white60,
+                            fontWeight: FontWeight.w300,
+                            letterSpacing: 1)),
                   ],
                 )
               ],

@@ -107,10 +107,12 @@ class _WeatherPageState extends State<WeatherPage> {
                                     ],
                                   ),
                                   trailing: Text(
-                                    foreCast![index]
-                                            .temp
-                                            .toString()
-                                            .substring(0, 2) +
+                                    foreCast![index].temp.toString().substring(
+                                            0,
+                                            foreCast![index]
+                                                .temp
+                                                .toString()
+                                                .indexOf('.')) +
                                         '°C',
                                     style: TextStyle(
                                         color: Colors.white,
