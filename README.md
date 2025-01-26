@@ -6,7 +6,7 @@ FLutter weather application.
 
 This project is a starting point for a Flutter application.
 <p>
-    <img src="https://github.com/prathambhatnagar/weather_app/blob/main/Screenshot_20250126_235217.png" width="220" height="240" />
+    <img src="https://github.com/prathambhatnagar/weather_app/blob/main/Screenshot_20250126_235217.png" width="400" height="800" />
 </p>
 A few resources to get you started if this is your first Flutter project:
 
