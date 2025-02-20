@@ -1,13 +1,17 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart';
 import 'package:weather/model/weather_model.dart';
+import 'package:weather/secrets/app_secrets.dart';
 
 class WeatherService {
+<<<<<<< HEAD
   String apiKey = '';
+=======
+  String apiKey = AppSecrets.apiKey;
+>>>>>>> daf6758 (Fixed Search Panel)
 
   // Get City Method
   Future<String> getCity() async {
@@ -56,7 +60,6 @@ class WeatherService {
     String preDate = '';
 
     while (i < 7 && counter < dataforecast['list'].length) {
-      // Ensure the counter is within bounds
       if (dataforecast['list'][counter]['dt_txt'].substring(8, 10) != preDate) {
         forecastList.add(Weatherforecast(
             temp: (dataforecast['list'][counter]['main']['temp'] - 273.15),
@@ -111,15 +114,3 @@ class Weatherforecast {
       required this.date,
       required this.main});
 }
-
-// String locality = data['name'];
-// int humidity = data['main']['humidity'];
-// int pressure = data['main']['pressure'];
-// double temp = data['main']['temp'];
-// double tempMin = data['main']['temp_min'];
-// double tempMax = data['main']['temp_max'];
-// String main = data['weather'][0]["main"];
-// String description = data['weather'][0]['description'];
-// String icon = data['weather'][0]['icon'];
-// double wind = data['wind']['speed'];
-// String country = data['sys']['country'];

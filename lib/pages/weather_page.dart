@@ -15,15 +15,16 @@ class _WeatherPageState extends State<WeatherPage> {
   String? city;
   Weather? weather;
   List<Weatherforecast>? foreCast;
+
   @override
   void initState() {
     super.initState();
     getdata();
   }
 
-  getdata() async {
+  Future<void> getdata([String? newCity]) async {
     WeatherService weatherService = WeatherService();
-    String fetchedCity = await weatherService.getCity();
+    String fetchedCity = newCity ?? await weatherService.getCity();
     List<Object> wList = await weatherService.getWeather(fetchedCity);
 
     setState(() {
@@ -56,7 +57,9 @@ class _WeatherPageState extends State<WeatherPage> {
               children: [
                 Header(),
                 SizedBox(height: 10),
-                SearchPannel(),
+                SearchPannel(onSearch: (cityName) {
+                  getdata(cityName); // Fetch weather for searched city
+                }),
                 SizedBox(height: 10),
                 weather != null
                     ? WeatherPanel(weather: weather!)
@@ -68,7 +71,7 @@ class _WeatherPageState extends State<WeatherPage> {
                         child: ListView.builder(
                           physics: BouncingScrollPhysics(),
                           itemCount: foreCast?.length,
-                          itemBuilder: (BuiltContext, index) {
+                          itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(vertical: 8),
                               child: Container(
@@ -107,12 +110,7 @@ class _WeatherPageState extends State<WeatherPage> {
                                     ],
                                   ),
                                   trailing: Text(
-                                    foreCast![index].temp.toString().substring(
-                                            0,
-                                            foreCast![index]
-                                                .temp
-                                                .toString()
-                                                .indexOf('.')) +
+                                    foreCast![index].temp.toStringAsFixed(0) +
                                         '°C',
                                     style: TextStyle(
                                         color: Colors.white,
